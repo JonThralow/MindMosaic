@@ -1,79 +1,20 @@
-import { Link } from "react-router-dom";
-
-type TestLink = {
-  slug: string;
-  title: string;
-  subtitle?: string;
-  emoji?: string;
-};
-
-const tests: TestLink[] = [
-  { slug: "narcissism", title: "Narcissism (NPI-16)", subtitle: "Self-focus & admiration", emoji: "🪞" },
-  { slug: "bigfive",    title: "Big Five",             subtitle: "OCEAN personality traits", emoji: "🌊" },
-  { slug: "mbti",       title: "MBTI Snapshot",        subtitle: "16-type quick look", emoji: "🧭" },
-  { slug: "eq",         title: "Emotional Intelligence (EQ)", subtitle: "Awareness & regulation", emoji: "💡" },
-  { slug: "iq",         title: "Cognitive Quick Check (IQ)",  subtitle: "Pattern & logic mini", emoji: "🧩" },
-  { slug: "socialIQ",   title: "Social Intelligence",  subtitle: "Empathy & cues", emoji: "🤝" }
-];
-
-const basePath = "/assessments"; // change if your router uses a different base
-
-export default function Home() {
-  return (
-    <main aria-labelledby="home-title" style={{ padding: "2rem 1rem", maxWidth: 960, margin: "0 auto" }}>
-      <header style={{ marginBottom: "1rem" }}>
-        <h1 id="home-title" style={{ fontSize: "clamp(1.5rem, 1.2rem + 2vw, 2.25rem)", margin: 0 }}>
-          AI Personality Quizzes
-        </h1>
-        <p style={{ color: "#334155", marginTop: ".5rem" }}>
-          Try quick, psychology-inspired self-assessments with friendly results.{" "}
-          <strong>Educational use only</strong>—not a clinical tool.
-        </p>
-      </header>
-
-      <section aria-label="Assessments">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "12px",
-          }}
-        >
-          {tests.map((t) => (
-            <Link
-              key={t.slug}
-              to={`${basePath}/${t.slug}`}
-              className="btn btn-primary"
-              aria-label={`Start ${t.title} assessment`}
-              style={{
-                width: "100%",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "1rem 1.1rem",
-              }}
-            >
-              <span style={{ display: "inline-flex", alignItems: "center", gap: ".6rem" }}>
-                <span aria-hidden="true" style={{ fontSize: "1.1rem" }}>{t.emoji ?? "🧠"}</span>
-                <span>
-                  <span style={{ display: "block", fontWeight: 800 }}>{t.title}</span>
-                  {t.subtitle && (
-                    <span style={{ display: "block", fontSize: ".85rem", opacity: 0.9 }}>{t.subtitle}</span>
-                  )}
-                </span>
-              </span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M13 5l7 7-7 7M5 12h14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <footer style={{ marginTop: "1.25rem", fontSize: ".85rem", color: "#475569" }}>
-        <p style={{ margin: 0, padding: ".75rem 1rem", border: "1px dashed #cbd5e1", borderRadius: ".75rem", background: "#f1f5f9" }}>
-          Results are for education only and not medical advice.
-        </p>
-      </footer>
-    </main>
-  );
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Personality Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { box-sizing: border-box; }
+    .neural-lines { position:absolute; inset:0; opacity:.1; overflow:hidden; }
+    .floating-circle{ position:absolute; border-radius:50%; background:linear-gradient(45deg,rgba(255,255,255,.1),rgba(255,255,255,.05)); animation:float 6s ease-in-out infinite;}
+    .floating-circle:nth-child(1){ width:80px;height:80px; top:20%; left:10%; animation-delay:0s;}
+    .floating-circle:nth-child(2){ width:120px;height:120px; top:60%; right:15%; animation-delay:2s;}
+    .floating-circle:nth-child(3){ width:60px;height:60px; top:80%; left:20%; animation-delay:4s;}
+    @keyframes float{ 0%,100%{ transform:translateY(0) rotate(0deg);} 50%{ transform:translateY(-20px) rotate(180deg);} }
+    .card-hover{ transition:all .3s ease; }
+    .card-hover:hover{ transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,.1); }
+    .btn-primary{ background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); transition:all .3s ease; }
+    .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 25px rgba(102,126,234,.4); }
+    .btn-secondary{ background:linear-gradient(135deg,#a8b5ff 0%,#c8a8ff 100%); transition:all .3s ease; }
