@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Personality Quizzes · Educational use only</title>
+    <meta name="description" content="Short, friendly self-assessments with instant results. Educational use only—not a clinical tool." />
+    <meta name="theme-color" content="#0ea5e9" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="sr-only" href="#root">Skip to app</a>
+    <div class="container" id="app-shell">
+      <div class="card">
+        <span class="badge">Loading app…</span>
+        <h1>AI Personality Quizzes</h1>
+        <p class="lead">Quick, psychology-inspired self-assessments with friendly results. <strong>Educational use only</strong>—not a clinical tool.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/assessments/narcissism">Start featured quiz</a>
+          <a class="btn btn-ghost" href="/assessments">Browse all</a>
+        </div>
+        <div class="links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/disclaimer">Disclaimer</a>
+        </div>
+        <div class="footer disclaimer">Educational use only—results aren’t medical advice.</div>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
